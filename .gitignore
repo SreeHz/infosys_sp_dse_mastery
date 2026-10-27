@@ -1,0 +1,14 @@
+# Secrets & Credentials
+config.json
+*.env
+.env
+
+# Server Runtime & Logs
+.server.pid
+server.log
+__pycache__/
+*.pyc
+
+# IDE & OS files
+.DS_Store
+Thumbs.db

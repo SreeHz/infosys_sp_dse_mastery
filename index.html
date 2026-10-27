@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infosys SP & DSE 37-Day Tactical Web-Lab Engine | Master Mission Control</title>
+  <meta name="description" content="Master Command Center for the 37-Day Infosys Specialist Programmer (SP) and Digital Specialist Engineer (DSE) Python Tactical Preparation.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+            mono: ['Fira Code', 'monospace']
+          },
+          colors: {
+            dark: {
+              950: '#07090e',
+              900: '#0d111c',
+              850: '#111726',
+              800: '#161f33',
+              700: '#222f4c'
+            },
+            accent: {
+              cyan: '#06b6d4',
+              emerald: '#10b981',
+              amber: '#f59e0b',
+              violet: '#8b5cf6',
+              rose: '#f43f5e'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #07090e;
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+    .glass-panel {
+      background: rgba(17, 23, 38, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .glow-cyan {
+      box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.3);
+    }
+    .glow-emerald {
+      box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.3);
+    }
+    .glow-amber {
+      box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.3);
+    }
+    .phase-badge {
+      clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d111c;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #222f4c;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #06b6d4;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- TOP STATUS BAR -->
+  <header class="border-b border-dark-700/60 bg-dark-900/80 sticky top-0 z-50 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-accent-cyan via-accent-violet to-accent-emerald flex items-center justify-center font-display font-black text-white text-lg shadow-lg">
+          37
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold font-display tracking-tight text-white flex items-center gap-2">
+            INFOSYS SP & DSE <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">WAR ENGINE</span>
+          </h1>
+          <p class="text-xs text-slate-400">37-Day Python Mastery & Interactive Web-Lab</p>
+        </div>
+      </div>
+
+      <!-- Quick Metrics -->
+      <div class="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm">
+        <div class="hidden sm:flex items-center gap-2 bg-dark-850 px-3 py-1.5 rounded-lg border border-dark-700">
+          <span class="text-slate-400">Server:</span>
+          <code class="font-mono text-cyan-300 text-xs">./start_server.sh</code>
+          <button onclick="navigator.clipboard.writeText('./start_server.sh'); alert('Copied start command: ./start_server.sh');" class="text-slate-400 hover:text-white ml-1" title="Copy start command">📋</button>
+        </div>
+        <div class="flex items-center gap-2 bg-dark-850 px-3 py-1.5 rounded-lg border border-dark-700">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-slate-400">Target:</span>
+          <span class="font-semibold text-white">Nov 22, 2026</span>
+          <span id="exam-countdown" class="font-mono text-cyan-400 font-bold ml-1">--d --h</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN HERO & OVERALL PROGRESS -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
+    
+    <!-- Hero Banner -->
+    <div class="glass-panel rounded-2xl p-6 sm:p-8 mb-8 relative overflow-hidden">
+      <div class="absolute -right-12 -top-12 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-12 -bottom-12 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+        <div class="lg:col-span-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-400 text-xs font-semibold uppercase tracking-wider mb-3">
+            Anti-Burnout System Active
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white tracking-tight mb-2">
+            The 3-Gear Escalator to SP (200+ Marks) & DSE (150 Marks)
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+            No blank-editor paralysis. Every day begins with a <strong class="text-cyan-400">10-Min Python Cushion</strong>, scales via an <strong class="text-emerald-400">Interactive Visual Simulator</strong>, teaches <strong class="text-amber-400">Story-Stripping</strong>, and locks down partial + full marks with the <strong class="text-violet-400">Offline Judge Suite</strong>.
+          </p>
+
+          <!-- Overall Progress Bar -->
+          <div class="bg-dark-950 p-4 rounded-xl border border-dark-700">
+            <div class="flex justify-between items-center text-xs font-semibold mb-2">
+              <span class="text-slate-300">Total Curriculum Completion</span>
+              <span id="overall-percentage" class="text-cyan-400 font-mono">0% (0 / 185 Tasks)</span>
+            </div>
+            <div class="w-full h-3 bg-dark-800 rounded-full overflow-hidden p-0.5 border border-dark-700">
+              <div id="overall-progress-bar" class="h-full bg-gradient-to-r from-accent-cyan via-accent-emerald to-accent-violet rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-slate-500 mt-2 font-mono">
+              <span>Day 01: Oct 16</span>
+              <span>Phase 1-5 Roadmap</span>
+              <span>Day 37: Nov 22 Exam</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- System Status Box -->
+        <div class="bg-dark-900/90 border border-dark-700 p-5 rounded-xl flex flex-col justify-between">
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center justify-between">
+              <span>Mission Protocol</span>
+              <span class="text-emerald-400 font-mono text-xs">READY</span>
+            </h3>
+            <ul class="text-xs space-y-2.5 text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-cyan-400 font-bold">1.</span>
+                <span><strong>Phase A:</strong> Daily Briefing & Research (Ask or explore topic).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold">2.</span>
+                <span><strong>Phase B:</strong> Command <code class="bg-dark-950 px-1 py-0.5 rounded text-cyan-300">"Generate Day XX"</code> to construct the full 3-file module.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 font-bold">3.</span>
+                <span><strong>15-Min Rule:</strong> Never stall. Use the progressive Hint Drawers.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-violet-400 font-bold">4.</span>
+                <span><strong>Local Judge:</strong> Run <code class="bg-dark-950 px-1 py-0.5 rounded text-emerald-300">python3 day_XX/day_XX_judge.py</code></span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-4 border-t border-dark-700 flex justify-between items-center text-xs">
+            <span class="text-slate-400">Architecture Doc:</span>
+            <span class="font-mono text-cyan-400">PROJECT_ARCHITECT.md</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE FILTER TABS -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-6 border-b border-dark-700">
+      <button onclick="filterPhase('all')" class="phase-btn px-4 py-2 rounded-lg text-xs font-semibold bg-cyan-500 text-dark-950 transition-all" data-phase="all">All 37 Days</button>
+      <button onclick="filterPhase('1')" class="phase-btn px-4 py-2 rounded-lg text-xs font-semibold bg-dark-850 hover:bg-dark-800 text-slate-300 border border-dark-700 transition-all" data-phase="1">Phase 1: Foundations & Arrays (Days 01-08)</button>
+      <button onclick="filterPhase('2')" class="phase-btn px-4 py-2 rounded-lg text-xs font-semibold bg-dark-850 hover:bg-dark-800 text-slate-300 border border-dark-700 transition-all" data-phase="2">Phase 2: Greedy, Heaps & BS (Days 09-17)</button>
+      <button onclick="filterPhase('3')" class="phase-btn px-4 py-2 rounded-lg text-xs font-semibold bg-dark-850 hover:bg-dark-800 text-slate-300 border border-dark-700 transition-all" data-phase="3">Phase 3: Trees & Graphs (Days 18-25)</button>
+      <button onclick="filterPhase('4')" class="phase-btn px-4 py-2 rounded-lg text-xs font-semibold bg-dark-850 hover:bg-dark-800 text-slate-300 border border-dark-700 transition-all" data-phase="4">Phase 4: No-Fear DP (Days 26-34)</button>
+      <button onclick="filterPhase('5')" class="phase-btn px-4 py-2 rounded-lg text-xs font-semibold bg-dark-850 hover:bg-dark-800 text-slate-300 border border-dark-700 transition-all" data-phase="5">Phase 5: War Mocks (Days 35-37)</button>
+    </div>
+
+    <!-- ROADMAP GRID -->
+    <div id="roadmap-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Cards dynamically rendered via JavaScript below -->
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-700/60 bg-dark-900/60 py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-400">
+      <p class="mb-1 font-display font-semibold text-slate-300">Infosys SP & DSE 37-Day Tactical Web-Lab Engine</p>
+      <p>Zero Dry Walls of Text • 3-Gear Escalator • Real Exam Story-Stripping • Offline Test Automation</p>
+    </div>
+  </footer>
+
+  <!-- DATA & LOGIC -->
+  <script>
+    const curriculum = [
+      // Phase 1
+      { day: 1, date: "Oct 16", phase: 1, title: "Time Complexity, Fast I/O & Prefix Sums", basics: "Python lists, sys.stdin.read, running sums", tactics: "1D/2D Prefix Sums, Difference Arrays O(1)", role: "Q1 Easy-Medium", marks: "100 Marks" },
+      { day: 2, date: "Oct 17", phase: 1, title: "Hash Maps, Frequency Engines & Prefix+Hash", basics: "dict, Counter, defaultdict(int)", tactics: "Subarray Sum K, Modulo Prefix, Balanced Subarrays", role: "Q1 Medium", marks: "100 Marks" },
+      { day: 3, date: "Oct 18", phase: 1, title: "Two Pointers (Opposite & Same Direction)", basics: "Two-end indexing, in-place swaps", tactics: "3Sum, Container With Water, Dutch Flag Partition", role: "Q1-Q2", marks: "100-150 Marks" },
+      { day: 4, date: "Oct 19", phase: 1, title: "Fixed & Variable Sliding Window", basics: "Window expansion & contraction", tactics: "Longest K Distinct, atMost(K) - atMost(K-1) hack", role: "Q1-Q2", marks: "100-150 Marks" },
+      { day: 5, date: "Oct 20", phase: 1, title: "Kadane’s Algorithm & Subarray Maximization", basics: "current_sum vs best_sum single pass", tactics: "Circular Subarray, Product Subarray, K-Concatenation", role: "Q1-Q2", marks: "100-150 Marks" },
+      { day: 6, date: "Oct 21", phase: 1, title: "String Manipulation & Palindrome Engines", basics: "ord(), chr(), ''.join(), tuples", tactics: "Expand-Around-Center, Lexicographically Smallest", role: "Q1-Q2", marks: "100-150 Marks" },
+      { day: 7, date: "Oct 22", phase: 1, title: "2D Matrices, Grid Traversals & Coordinate Math", basics: "grid[r][c] loops, 4-directional dr, dc", tactics: "Spiral/Diagonal, In-Place Rotation, Manhattan Math", role: "Q1-Q2", marks: "100-150 Marks" },
+      { day: 8, date: "Oct 23", phase: 1, title: "Phase 1 Consolidation & Infosys Q1 Speed-Run", basics: "Review of dict, Counter, Prefix Sums", tactics: "Timed 3-Problem Set + Decision Tree Classifier", role: "Q1 Mastery", marks: "100 Marks" },
+
+      // Phase 2
+      { day: 9, date: "Oct 24", phase: 2, title: "Custom Lambda Sorting & Monster Greedy", basics: "sorted(key=lambda x: (x[0], -x[1]))", tactics: "Infosys RPG Monster Quest, Exchange Argument", role: "Q2 Core", marks: "150 Marks" },
+      { day: 10, date: "Oct 25", phase: 2, title: "Interval Greedy & Line Sweep Technique", basics: "[start, end] overlap checks", tactics: "Merge Intervals, Meeting Rooms, Line Sweep", role: "Q2 Core", marks: "150 Marks" },
+      { day: 11, date: "Oct 26", phase: 2, title: "Binary Search & Python bisect Hacks", basics: "bisect_left vs bisect_right", tactics: "Rotated Sorted Array, Range Query O(log N)", role: "Q2 Core", marks: "150 Marks" },
+      { day: 12, date: "Oct 27", phase: 2, title: "Binary Search on Answer (Predicate)", basics: "can_we_achieve(mid) True/False", tactics: "Koko Bananas, Aggressive Cows, Split Array Sum", role: "Q2-Q3", marks: "150-200 Marks" },
+      { day: 13, date: "Oct 28", phase: 2, title: "Stacks & Monotonic Stack Blueprint", basics: "LIFO append/pop/stack[-1]", tactics: "Next Greater Element, Histogram, Subarray Mins", role: "Q2-Q3", marks: "150-200 Marks" },
+      { day: 14, date: "Oct 29", phase: 2, title: "Queues, deque & Monotonic Deque", basics: "Why list.pop(0) is O(N) TLE", tactics: "Sliding Window Max O(N), Shortest Subarray >= K", role: "Q2-Q3", marks: "150-200 Marks" },
+      { day: 15, date: "Oct 30", phase: 2, title: "Priority Queues & heapq Hacks", basics: "Min-heap heap[0], -val max-heap trick", tactics: "Kth Largest, Merge K Lists, Median Stream", role: "Q2-Q3", marks: "150-200 Marks" },
+      { day: 16, date: "Oct 31", phase: 2, title: "Advanced Greedy + Heap Hybrids (Regret)", basics: "Combining sort() with dynamic heapq", tactics: "IPO Capital, Refueling Stops, Task Scheduler", role: "Q2-Q3 SP", marks: "150-200 Marks" },
+      { day: 17, date: "Nov 01", phase: 2, title: "Phase 2 Consolidation & Infosys Q2 Mock", basics: "Rapid drill on bisect & heapq", tactics: "Full Infosys Q1 + Q2 Timed Simulation", role: "Q2 Mastery", marks: "150 Marks" },
+
+      // Phase 3
+      { day: 18, date: "Nov 02", phase: 3, title: "Recursion Call Stack & Backtracking", basics: "Base case vs recursive step, stack depth", tactics: "Subsets, Permutations, N-Queens Pruning", role: "Q2-Q3", marks: "150-200 Marks" },
+      { day: 19, date: "Nov 03", phase: 3, title: "Binary Tree DFS (Bottom-Up Passing)", basics: "TreeNode, Pre/In/Postorder visuals", tactics: "Diameter, Max Path Sum, LCA, Tree Robber", role: "Q2-Q3", marks: "150-200 Marks" },
+      { day: 20, date: "Nov 04", phase: 3, title: "Tree BFS (Level Order) & BST Properties", basics: "deque for level-by-level BFS", tactics: "Zigzag View, Distance K in Tree, Validate BST", role: "Q2-Q3", marks: "150-200 Marks" },
+      { day: 21, date: "Nov 05", phase: 3, title: "Graph Representations & DFS Components", basics: "defaultdict(list) adj list + visited set", tactics: "Number of Islands, Flood Fill, Bipartite Graph", role: "Q2-Q3", marks: "150-200 Marks" },
+      { day: 22, date: "Nov 06", phase: 3, title: "Multi-Source BFS & Shortest Paths", basics: "Push all start points at time=0", tactics: "Rotting Oranges, 01 Matrix, Word Ladder", role: "Q2-Q3", marks: "150-200 Marks" },
+      { day: 23, date: "Nov 07", phase: 3, title: "Directed Graphs, Cycles & Topo Sort", basics: "indegree counting and dependency ordering", tactics: "Course Schedule I/II (Kahn's BFS), Longest Path", role: "Q2-Q3 SP", marks: "150-200 Marks" },
+      { day: 24, date: "Nov 08", phase: 3, title: "Dijkstra’s Algorithm & State-Space Path", basics: "heapq (cost, node) priority queue", tactics: "Network Delay, Min Effort, Modified Dijkstra", role: "Q3 SP Hard", marks: "200 Marks" },
+      { day: 25, date: "Nov 09", phase: 3, title: "Disjoint Set Union (DSU) Blueprint", basics: "parent[i]=i, find() with path compression", tactics: "Provinces, Redundant Connection, Kruskal MST", role: "Q2-Q3", marks: "150-200 Marks" },
+
+      // Phase 4
+      { day: 26, date: "Nov 10", phase: 4, title: "@lru_cache(None) DP Miracle (1D Trees)", basics: "Memoization caching to kill TLE branches", tactics: "House Robber, Decode Ways, Tickets (Top-Down/Bottom-Up)", role: "Q3 SP Hard", marks: "200 Marks" },
+      { day: 27, date: "Nov 11", phase: 4, title: "0/1 Knapsack & Subset Sum Blueprints", basics: "Pick vs Skip (index, remaining_cap)", tactics: "Partition Equal Subset, Target Sum, Last Stone", role: "Q3 SP Hard", marks: "200 Marks" },
+      { day: 28, date: "Nov 12", phase: 4, title: "Unbounded Knapsack & Coin Change", basics: "Staying at same index after pick", tactics: "Coin Change (Min & Ways), Rod Cutting", role: "Q3 SP Hard", marks: "200 Marks" },
+      { day: 29, date: "Nov 13", phase: 4, title: "Two-String DP (LCS, Edit Distance)", basics: "Two pointers (i, j) with @lru_cache", tactics: "LCS, Longest Palindromic Subseq, Edit Distance", role: "Q3 SP Hard", marks: "200 Marks" },
+      { day: 30, date: "Nov 14", phase: 4, title: "Longest Increasing Subsequence & bisect DP", basics: "O(N^2) DP vs O(N log N) Patience Sorting", tactics: "Russian Doll Envelopes, Largest Divisible Subset", role: "Q3-Q4 SP", marks: "200+ Marks" },
+      { day: 31, date: "Nov 15", phase: 4, title: "2D Grid DP & Multi-Path Optimization", basics: "Moving (r, c) & caching best paths", tactics: "Unique Paths, Min Path Sum, Cherry Pickup", role: "Q3-Q4 SP", marks: "200+ Marks" },
+      { day: 32, date: "Nov 16", phase: 4, title: "State-Machine & Partition/Interval DP", basics: "State flags (day, holding_stock, k)", tactics: "Stock with Cooldown, Burst Balloons", role: "Q3-Q4 SP", marks: "200+ Marks" },
+      { day: 33, date: "Nov 17", phase: 4, title: "Bit Manipulation, XOR & Bitmask DP", basics: "&, |, ^, << and bit checks", tactics: "Single Number, Bitmask DP for SP Q4 (N <= 18)", role: "Q4 SP Boss", marks: "200+ Marks" },
+      { day: 34, date: "Nov 18", phase: 4, title: "Infosys SP Math, Number Theory & Comb", basics: "pow(a, b, MOD), math.gcd, prime sieve", tactics: "Factorization, nCr Mod 10^9+7, Game Theory", role: "Q3-Q4 SP", marks: "200+ Marks" },
+
+      // Phase 5
+      { day: 35, date: "Nov 19", phase: 5, title: "Infosys DSE/SP Mock Simulation #1", basics: "3-Hour Timed Contest Strategy", tactics: "Q1 Window + Q2 Greedy + Q3 DP + Partial Triage", role: "Full Mock #1", marks: "450 Marks" },
+      { day: 36, date: "Nov 20", phase: 5, title: "Infosys SP Hard Mock Simulation #2", basics: "4-Question SP War Simulation", tactics: "Q1 Hash + Q2 Graph + Q3 DP + Q4 Partial Harvester", role: "Full Mock #2", marks: "650 Marks" },
+      { day: 37, date: "Nov 21-22", phase: 5, title: "Master Cheatsheet & Exam-Day Execution", basics: "14-Blueprint Flashcard System", tactics: "5-Min Brute Fallback Drill, Exam Mental Guard", role: "Exam Day", marks: "Target: SP/DSE" }
+    ];
+
+    // Countdown logic
+    function updateCountdown() {
+      const examDate = new Date("2026-11-22T09:00:00+05:30").getTime();
+      const now = new Date().getTime();
+      const diff = examDate - now;
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("exam-countdown").innerText = `${days}d ${hours}h`;
+      } else {
+        document.getElementById("exam-countdown").innerText = "EXAM TODAY!";
+      }
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+
+    // Calculate completed tasks from localStorage using Section 5 schema
+    function calculateProgress() {
+      let totalCompleted = 0;
+      const totalPossible = curriculum.length * 5; // 5 tasks per day
+
+      curriculum.forEach(item => {
+        const dayStr = String(item.day).padStart(2, '0');
+        const saved = localStorage.getItem(`infosys_day_${dayStr}_progress`);
+        if (saved) {
+          try {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed.tasks)) {
+              totalCompleted += parsed.tasks.filter(Boolean).length;
+            } else if (typeof parsed === 'object') {
+              totalCompleted += Object.values(parsed).filter(Boolean).length;
+            }
+          } catch(e) {}
+        }
+      });
+
+      const pct = Math.round((totalCompleted / totalPossible) * 100);
+      document.getElementById("overall-percentage").innerText = `${pct}% (${totalCompleted} / ${totalPossible} Tasks)`;
+      document.getElementById("overall-progress-bar").style.width = `${pct}%`;
+    }
+
+    // Render cards
+    function renderGrid(phaseFilter = "all") {
+      const grid = document.getElementById("roadmap-grid");
+      grid.innerHTML = "";
+
+      const filtered = phaseFilter === "all" ? curriculum : curriculum.filter(c => String(c.phase) === phaseFilter);
+
+      filtered.forEach(item => {
+        const dayStr = String(item.day).padStart(2, '0');
+        const saved = localStorage.getItem(`infosys_day_${dayStr}_progress`);
+        let completedCount = 0;
+        if (saved) {
+          try {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed.tasks)) {
+              completedCount = parsed.tasks.filter(Boolean).length;
+            } else if (typeof parsed === 'object') {
+              completedCount = Object.values(parsed).filter(Boolean).length;
+            }
+          } catch(e) {}
+        }
+
+        const isFullyDone = completedCount === 5;
+        const phaseColors = {
+          1: "text-cyan-400 border-cyan-500/30 bg-cyan-500/10",
+          2: "text-amber-400 border-amber-500/30 bg-amber-500/10",
+          3: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
+          4: "text-violet-400 border-violet-500/30 bg-violet-500/10",
+          5: "text-rose-400 border-rose-500/30 bg-rose-500/10"
+        };
+
+        const card = document.createElement("div");
+        card.className = "glass-panel rounded-xl p-5 hover:border-slate-500 transition-all duration-200 flex flex-col justify-between relative group";
+        card.id = `card-day-${dayStr}`;
+
+        card.innerHTML = `
+          <div>
+            <!-- Top Card Header -->
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs px-2.5 py-0.5 rounded-full border font-mono font-semibold ${phaseColors[item.phase]}">
+                Phase ${item.phase} • Day ${dayStr}
+              </span>
+              <span class="text-[11px] font-mono text-slate-400">${item.date}</span>
+            </div>
+
+            <!-- Title -->
+            <h4 class="text-base font-bold text-white group-hover:text-cyan-300 transition-colors mb-2">
+              ${item.title}
+            </h4>
+
+            <!-- Cushion & Tactics Snippet -->
+            <div class="space-y-1.5 text-xs text-slate-300 mb-4 bg-dark-950/60 p-3 rounded-lg border border-dark-800">
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-semibold">Cushion:</span>
+                <span class="truncate">${item.basics}</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-cyan-400 font-semibold">Tactics:</span>
+                <span class="truncate">${item.tactics}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Card Footer & Action -->
+          <div>
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-3">
+              <span class="font-mono text-accent-amber">${item.role} (${item.marks})</span>
+              <span class="font-mono ${isFullyDone ? 'text-emerald-400 font-bold' : 'text-slate-400'}">
+                ${completedCount}/5 Tasks ${isFullyDone ? '✓' : ''}
+              </span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <a href="day_${dayStr}/day_${dayStr}_dashboard.html" 
+                 class="flex-1 text-center py-2 px-3 rounded-lg bg-dark-800 hover:bg-cyan-500 hover:text-dark-950 text-cyan-400 font-semibold text-xs border border-dark-700 hover:border-cyan-400 transition-all">
+                Launch Day ${dayStr} Lab →
+              </a>
+              <button onclick="copyTerminalCmd('python3 day_${dayStr}/day_${dayStr}_judge.py')" 
+                      title="Copy Judge Command"
+                      class="py-2 px-3 rounded-lg bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white border border-dark-700 text-xs font-mono">
+                Judge
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterPhase(phase) {
+      document.querySelectorAll('.phase-btn').forEach(b => {
+        if (b.getAttribute('data-phase') === phase) {
+          b.className = "phase-btn px-4 py-2 rounded-lg text-xs font-semibold bg-cyan-500 text-dark-950 transition-all";
+        } else {
+          b.className = "phase-btn px-4 py-2 rounded-lg text-xs font-semibold bg-dark-850 hover:bg-dark-800 text-slate-300 border border-dark-700 transition-all";
+        }
+      });
+      renderGrid(phase);
+    }
+
+    function copyTerminalCmd(cmd) {
+      navigator.clipboard.writeText(cmd);
+      alert(`Copied offline judge command to clipboard:\n${cmd}`);
+    }
+
+    // Live multi-tab sync
+    window.addEventListener('storage', () => {
+      calculateProgress();
+      renderGrid();
+    });
+
+    // Init
+    renderGrid("all");
+    calculateProgress();
+  </script>
+  <!-- Vertex AI Co-Pilot & UI Mutator Engine -->
+  <script src="assets/vertex_copilot.js"></script>
+</body>
+</html>
