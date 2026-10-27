@@ -55,7 +55,7 @@ Each day `day_XX` contains three tightly-coupled components:
 | **02** | Oct 17 | Hash Maps, Frequency Engines & Prefix+Hash | ✅ Done | ✅ Done | ✅ 12/12 Passed |
 | **03** | Oct 18 | Two Pointers (Opposite & Same Direction) | ✅ Done | ✅ Done | ✅ 12/12 Passed |
 | **04** | Oct 19 | Fixed & Variable Sliding Window | ✅ Done | ✅ Done | ✅ 12/12 Passed |
-| **05** | Oct 20 | Kadane’s Algorithm & Subarray Maximization | ⏳ Pending | ⏳ Pending | ⏳ Pending |
+| **05** | Oct 20 | Kadane’s Algorithm & Subarray Maximization | ✅ Done | ✅ Done | ✅ 12/12 Passed |
 | **06** | Oct 21 | String Manipulation & Palindrome Engines | ⏳ Pending | ⏳ Pending | ⏳ Pending |
 | **07** | Oct 22 | 2D Matrices, Grid Traversals & Coordinate Math | ⏳ Pending | ⏳ Pending | ⏳ Pending |
 | **08** | Oct 23 | Phase 1 Consolidation & Infosys Q1 Speed-Run | ⏳ Pending | ⏳ Pending | ⏳ Pending |
