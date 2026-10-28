@@ -56,7 +56,7 @@ Each day `day_XX` contains three tightly-coupled components:
 | **03** | Oct 18 | Two Pointers (Opposite & Same Direction) | ✅ Done | ✅ Done | ✅ 12/12 Passed |
 | **04** | Oct 19 | Fixed & Variable Sliding Window | ✅ Done | ✅ Done | ✅ 12/12 Passed |
 | **05** | Oct 20 | Kadane’s Algorithm & Subarray Maximization | ✅ Done | ✅ Done | ✅ 12/12 Passed |
-| **06** | Oct 21 | String Manipulation & Palindrome Engines | ⏳ Pending | ⏳ Pending | ⏳ Pending |
+| **06** | Oct 21 | String Manipulation & Palindrome Engines | ✅ Done | ✅ Done | ✅ 12/12 Passed |
 | **07** | Oct 22 | 2D Matrices, Grid Traversals & Coordinate Math | ⏳ Pending | ⏳ Pending | ⏳ Pending |
 | **08** | Oct 23 | Phase 1 Consolidation & Infosys Q1 Speed-Run | ⏳ Pending | ⏳ Pending | ⏳ Pending |
 | **09** | Oct 24 | Custom Lambda Sorting & Monster Greedy | ⏳ Pending | ⏳ Pending | ⏳ Pending |
